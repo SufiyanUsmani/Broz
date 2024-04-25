@@ -6,6 +6,7 @@ import HomeScreen from '../src/screen/HomeScreen';
 import Login from '../src/screen/Login';
 import OtpVerify from '../src/screen/OtpVerify';
 import BottomTab from '../core/BottomTab';
+import Privacy from '../src/screen/Privacy';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ const StackNavigator = () => {
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="OtpVerify" component={OtpVerify} options={{ headerShown: false }} />
         <Stack.Screen name="BottomTab" component={BottomTab} options={{ headerShown: false }} />
+        <Stack.Screen name='Privacy' component={Privacy} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

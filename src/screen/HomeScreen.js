@@ -6,7 +6,7 @@ import BottomTab from '../../core/BottomTab';
 const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={{ backgroundColor: "#ffffff",flex:1 }}>
-            <View style={{ flexDirection: "row", height: 50, justifyContent: "space-between", borderBottomColor: "#646464", borderBottomWidth: 0.3,marginBottom:"5%" }}>
+            <View style={{ flexDirection: "row", height: 50, justifyContent: "space-between", borderBottomColor: "#646464", borderBottomWidth: 0.3,}}>
                 <Image style={{ height: 48, width: 250, marginHorizontal: 10 }} source={require('../../res/Headerimg.png')} />
                 {/* <Ionicons style={{ margin: 12 }} name="bag-outline" size={24} /> */}
             </View>
