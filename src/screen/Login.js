@@ -15,9 +15,9 @@ const Login = ({navigation}) => {
         </TouchableOpacity>
         <Text>By entering your number your're agreeing to our</Text>
         <View style={{flexDirection:"row"}}>
-          <TouchableOpacity><Text style={styles.BlueF14}>Terms of Service</Text></TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate("Terms")}><Text style={styles.BlueF14}>Terms of Service</Text></TouchableOpacity>
           <Text> and </Text>
-          <TouchableOpacity><Text style={styles.BlueF14}>Privacy Policy</Text></TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate("Privacy")}><Text style={styles.BlueF14}>Privacy Policy</Text></TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

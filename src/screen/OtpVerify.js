@@ -33,7 +33,7 @@ const OtpVerify = ({ navigation }) => {
         </TouchableOpacity> :
         <Text style={{marginLeft: "5%" }}>You Can Resend OTP in: {timer} Seconds</Text>}
 
-      <TouchableOpacity style={[styles.Touchable, styles.JACenter]} onPress={() => navigation.navigate('Privacy')}>
+      <TouchableOpacity style={[styles.Touchable, styles.JACenter]} onPress={() => navigation.navigate('HomeScreen')}>
         <Text style={styles.WhiteF16B}>otp Verify</Text>
       </TouchableOpacity>
     </SafeAreaView>
