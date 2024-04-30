@@ -1,14 +1,14 @@
 import React from 'react';
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import BottomTab from '../../core/BottomTab';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={{ backgroundColor: "#ffffff",flex:1 }}>
             <View style={{ flexDirection: "row", height: 50, justifyContent: "space-between", borderBottomColor: "#646464", borderBottomWidth: 0.3,}}>
                 <Image style={{ height: 48, width: 250, marginHorizontal: 10 }} source={require('../../res/Headerimg.png')} />
-                {/* <Ionicons style={{ margin: 12 }} name="bag-outline" size={24} /> */}
+                <Ionicons name="settings-outline" size={24} style={{margin:10}}/>
             </View>
             <ScrollView>
                 <Image style={{ height: 450, width: "96%", margin: "2%", borderRadius: 15 }} source={require('../../res/head1.jpeg')} />
