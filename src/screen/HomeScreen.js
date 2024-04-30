@@ -1,15 +1,22 @@
-import React from 'react';
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import BottomTab from '../../core/BottomTab';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const HomeScreen = ({ navigation }) => {
+    const [search, setSearch] = useState(false);
     return (
-        <SafeAreaView style={{ backgroundColor: "#ffffff",flex:1 }}>
-            <View style={{ flexDirection: "row", height: 50, justifyContent: "space-between", borderBottomColor: "#646464", borderBottomWidth: 0.3,}}>
+        <SafeAreaView style={{ backgroundColor: "#ffffff", flex: 1 }}>
+            <View style={{ flexDirection: "row", height: 50, justifyContent: "space-between", borderBottomColor: "#646464", borderBottomWidth: 0.3, }}>
                 <Image style={{ height: 48, width: 250, marginHorizontal: 10 }} source={require('../../res/Headerimg.png')} />
-                <Ionicons name="settings-outline" size={24} style={{margin:10}}/>
+                <TouchableOpacity onPress={() => setSearch(!search)}>
+                    <Ionicons name="search-outline" size={26} style={{ margin: 10 }} />
+                </TouchableOpacity>
             </View>
+            {!search && <View style={{height:50}}>
+                    <TextInput style={{borderWidth:0.3,backgroundColor:"#d3d3d3",padding:10,marginHorizontal:10,marginVertical:5,borderRadius:12}}
+                    placeholder='Search Here...'/>
+                </View>}
             <ScrollView>
                 <Image style={{ height: 450, width: "96%", margin: "2%", borderRadius: 15 }} source={require('../../res/head1.jpeg')} />
                 <TouchableOpacity style={[styles.Touchable, styles.JACenter]}>
@@ -24,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={styles.BuyNow}>Buy Now</Text>
                 </TouchableOpacity>
             </ScrollView>
-            <BottomTab style={{height:50}}/>
+            <BottomTab style={{ height: 50 }} />
         </SafeAreaView>
     );
 };

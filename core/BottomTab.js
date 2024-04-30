@@ -1,16 +1,25 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Ionicons from "react-native-vector-icons/";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const BottomTab = () => {
     return (
         <View style={styles.mainView}>
             <TouchableOpacity>
-                {/* <FontAwesome name="user-circle" size={20}/> */}
+                <Ionicons name="home-outline" size={26} />
             </TouchableOpacity>
             <TouchableOpacity>
-                {/* <Ionicons name="settings-outline" size={20}/> */}
+                <Ionicons name="bag-outline" size={26} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <FontAwesome name="plus-square-o" size={28} />
+            </TouchableOpacity>
+            {/* <TouchableOpacity>
+                <Ionicons name="settings-outline" size={26} />
+            </TouchableOpacity> */}
+            <TouchableOpacity>
+                <FontAwesome name="user-o" size={26} />
             </TouchableOpacity>
         </View>
     )
@@ -18,9 +27,10 @@ const BottomTab = () => {
 
 const styles = StyleSheet.create({
     mainView: {
-        backgroundColor: "#fff", borderTopWidth: 0.3, borderTopColor: "#646464", position: 'absolute', width: '100%', bottom: 0,
+        backgroundColor: "#d3d3d3", position: 'absolute', width: '90%', marginHorizontal: "5%", bottom: 20,
+        borderRadius: 12,
         flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
-        paddingHorizontal: '6%', paddingVertical: Platform.OS == 'ios' ? '5%' : '3%',
+        paddingHorizontal: '10%', paddingVertical: Platform.OS == 'ios' ? '4%' : '3%',
     }
 })
 export default BottomTab;
