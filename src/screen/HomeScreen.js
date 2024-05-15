@@ -8,7 +8,7 @@ const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.BCF}>
             <View style={styles.ZZXX}>
-                <Image style={styles.H48} source={require('../../res/Headerimg.png')} />
+                <Image style={styles.H48} source={require('../../res/Headerimg.jpeg')} />
                 <TouchableOpacity onPress={() => setSearch(!search)}>
                     <Ionicons name="search-outline" size={26} style={{ margin: 10 }} />
                 </TouchableOpacity>
