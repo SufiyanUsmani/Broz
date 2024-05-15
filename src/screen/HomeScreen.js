@@ -8,7 +8,8 @@ const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.BCF}>
             <View style={styles.ZZXX}>
-                <Image style={styles.H48} source={require('../../res/Headerimg.jpeg')} />
+                {/* <Image style={styles.H48} source={require('../../res/Headerimg.jpeg')} /> */}
+                <Text style={{fontSize:24,fontWeight:"700",color:"#2A4C54",margin:10}}>Broz</Text>
                 <TouchableOpacity onPress={() => setSearch(!search)}>
                     <Ionicons name="search-outline" size={26} style={{ margin: 10 }} />
                 </TouchableOpacity>
