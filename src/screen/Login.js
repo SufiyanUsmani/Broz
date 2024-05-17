@@ -12,7 +12,6 @@ const Login = ({ navigation }) => {
     return () => {listener.remove();};
   }, []);
 
-
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: theme === "light" ? "#d9d9d9" : "#000" }}>
       <TouchableOpacity style={[styles.Skip, styles.JACenter]}>
