@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { StyleSheet, TouchableOpacity, Text, SafeAreaView,Alert } from 'react-native'
-=======
 import { StyleSheet, TouchableOpacity, Text, SafeAreaView, Alert, Appearance } from 'react-native'
->>>>>>> 411d2d5b6af9eb5f7737038b7cf78c88116270c3
 import React, { useState, useEffect } from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 
