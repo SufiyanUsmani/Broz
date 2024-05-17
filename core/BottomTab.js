@@ -3,7 +3,7 @@ import React from 'react'
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const BottomTab = () => {
+const BottomTab = ({ navigation }) => {
     return (
         <View style={styles.mainView}>
             <TouchableOpacity>
@@ -18,7 +18,7 @@ const BottomTab = () => {
             {/* <TouchableOpacity>
                 <Ionicons name="settings-outline" size={26} />
             </TouchableOpacity> */}
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('MyProfile')}>
                 <FontAwesome name="user-o" size={26} />
             </TouchableOpacity>
         </View>

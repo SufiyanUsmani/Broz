@@ -1,8 +1,17 @@
-import { StyleSheet, TextInput, View, TouchableOpacity, Text, SafeAreaView,Alert } from 'react-native'
+import { StyleSheet, TouchableOpacity, Text, SafeAreaView, Alert, Appearance } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 
 const OtpVerify = ({ navigation }) => {
+  const [theme, setTheme] = useState("");
+  useEffect(() => {
+    const listener = Appearance.addChangeListener(({ colorScheme }) => {
+      if (colorScheme === "dark") {
+        setTheme('dark');
+      } else { setTheme('light'); }
+    });
+    return () => { listener.remove(); };
+  }, []);
   const [timer, setTimer] = useState(30);
   useEffect(() => {
     const myInterval = timer > 0 && setInterval(() => setTimer(timer - 1), 1000);
@@ -18,9 +27,8 @@ const OtpVerify = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Text style={{ fontSize: 24, fontWeight: "600",marginLeft:"5%" }}>Enter the 4-digit OTP</Text>
-      
+    <SafeAreaView style={{ flex: 1, backgroundColor: theme === "light" ? "#d9d9d9" : "#000" }}>
+      <Text style={[styles.F24,{ color: theme === "light" ? "#2A4C54" : "#d3d3d3", }]}>Enter the 4-digit OTP</Text>
       <OTPInputView style={{ width: '80%', height: 100, marginHorizontal: "10%", }} pinCount={4}
         autoFocusOnLoad
         keyboardType="number-pad"
@@ -29,12 +37,11 @@ const OtpVerify = ({ navigation }) => {
         onCodeFilled={(code => { console.log(`Code is ${code}, you are good to go!`) })} />
       {timer == 0 ?
         <TouchableOpacity onPress={() => resendOtp()}>
-          <Text style={styles.F14}>Resend otp</Text>
+          <Text style={[styles.F14, { color: theme === "light" ? "#2A4C54" : "#d3d3d3", }]}>Resend otp</Text>
         </TouchableOpacity> :
-        <Text style={{marginLeft: "5%" }}>You Can Resend OTP in: {timer} Seconds</Text>}
-
-      <TouchableOpacity style={[styles.Touchable, styles.JACenter]} onPress={() => navigation.navigate('HomeScreen')}>
-        <Text style={styles.WhiteF16B}>otp Verify</Text>
+        <Text style={{ marginLeft: "5%", color: theme === "light" ? "#2A4C54" : "#d3d3d3", }}>You Can Resend OTP in: {timer} Seconds</Text>}
+      <TouchableOpacity style={[styles.Touchable, styles.JACenter,]} onPress={() => navigation.navigate('HomeScreen')}>
+        <Text style={styles.WhiteF16B}>Otp Verify</Text>
       </TouchableOpacity>
     </SafeAreaView>
   )
@@ -43,10 +50,11 @@ const OtpVerify = ({ navigation }) => {
 export default OtpVerify
 
 const styles = StyleSheet.create({
-  F14: { color: "#2A4C54", fontSize: 14, fontWeight: "600", marginLeft: "5%" },
+  F24: { fontSize: 24, fontWeight: "600", marginLeft: "5%", },
+  F14: { fontSize: 14, fontWeight: "600", marginLeft: "5%" },
   underlineStyleBase: { width: 50, height: 50, borderWidth: 1, borderBottomWidth: 1, borderRadius: 8, borderColor: "#646464", },
   underlineStyleHighLighted: { borderColor: "#000", },
   JACenter: { justifyContent: "center", alignItems: "center" },
-  WhiteF16B: { color: "#fff", fontSize: 16, fontWeight: "700" },
+  WhiteF16B: { color: "#d3d3d3", fontSize: 16, fontWeight: "700" },
   Touchable: { height: 45, width: "90%", marginHorizontal: "5%", marginVertical: 10, padding: 10, borderWidth: 0.5, borderColor: "#646464", borderRadius: 10, backgroundColor: "#2A4C54" },
 })

@@ -8,6 +8,7 @@ import OtpVerify from '../src/screen/OtpVerify';
 import BottomTab from '../core/BottomTab';
 import Privacy from '../src/screen/Privacy';
 import Terms from '../src/screen/Terms';
+import MyProfile from '../src/screen/MyProfile';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -18,9 +19,10 @@ const StackNavigator = () => {
         <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="OtpVerify" component={OtpVerify} options={{ headerShown: false }} />
-        <Stack.Screen name="BottomTab" component={BottomTab} options={{ headerShown: false }} />
+        <Stack.Screen name="BottomTab" component={BottomTab}/>
         <Stack.Screen name='Privacy' component={Privacy} options={{ headerShown: false }}/>
         <Stack.Screen name='Terms' component={Terms} options={{ headerShown: false }}/>
+        <Stack.Screen name='MyProfile' component={MyProfile} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
