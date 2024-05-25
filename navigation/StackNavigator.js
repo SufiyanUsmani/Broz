@@ -5,24 +5,54 @@ import SplashScreen from '../src/screen/SplashScreen';
 import HomeScreen from '../src/screen/HomeScreen';
 import Login from '../src/screen/Login';
 import OtpVerify from '../src/screen/OtpVerify';
-import BottomTab from '../core/BottomTab';
 import Privacy from '../src/screen/Privacy';
 import Terms from '../src/screen/Terms';
 import MyProfile from '../src/screen/MyProfile';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import AntDesign from "react-native-vector-icons/AntDesign";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
+  const Tab = createBottomTabNavigator();
+
+  function BottomTabs() {
+    return (
+      <Tab.Navigator>
+        <Tab.Screen name="HomeScreen" component={HomeScreen} options={{
+          tabBarLabel: "Home", headerShown: false, tabBarIcon: ({ focused }) => (
+            focused ? (<FontAwesome name="home" size={26} color="#2A4C54"/>) : (<Ionicons name="home-outline" size={26} color="#646464"/>)
+          )
+        }} />
+        <Tab.Screen name="Cart" component={HomeScreen} options={{
+          tabBarLabel: "Cart", headerShown: false, tabBarIcon: ({ focused }) => (
+            focused ? (<Ionicons name="cart" size={26} color="#2A4C54"/>) : (<Ionicons name="cart-outline" size={26} color="#646464"/>)
+          )
+        }} />
+        {/* <Tab.Screen name="Category" component={HomeScreen} options={{
+          tabBarLabel: "Category", headerShown: false, tabBarIcon: ({ focused }) => (
+            focused ? (<AntDesign name="pluscircle" size={26} />) : (<AntDesign name="pluscircleo" size={26} />)
+          )
+        }} /> */}
+        <Tab.Screen name="MyProfile" component={HomeScreen} options={{
+          tabBarLabel: "MyProfile", headerShown: false, tabBarIcon: ({ focused }) => (
+            focused ? (<Ionicons name="person" size={26} color="#2A4C54" />) : (<Ionicons name="person-outline" size={26} color="#646464"/>)
+          )
+        }} />
+      </Tab.Navigator>
+    )
+  }
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SplashScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
         <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="HomeScreen" component={BottomTabs} options={{ headerShown: false }} />
         <Stack.Screen name="OtpVerify" component={OtpVerify} options={{ headerShown: false }} />
-        <Stack.Screen name="BottomTab" component={BottomTab}/>
-        <Stack.Screen name='Privacy' component={Privacy} options={{ headerShown: false }}/>
-        <Stack.Screen name='Terms' component={Terms} options={{ headerShown: false }}/>
-        <Stack.Screen name='MyProfile' component={MyProfile} options={{ headerShown: false }}/>
+        <Stack.Screen name='Privacy' component={Privacy} options={{ headerShown: false }} />
+        <Stack.Screen name='Terms' component={Terms} options={{ headerShown: false }} />
+        <Stack.Screen name='MyProfile' component={MyProfile} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

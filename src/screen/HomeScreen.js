@@ -31,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={styles.BuyNow}>Buy Now</Text>
                 </TouchableOpacity>
             </ScrollView>
-            <BottomTab style={styles.H50} />
+            {/* <BottomTab style={styles.H50} /> */}
         </SafeAreaView>
     );
 };
