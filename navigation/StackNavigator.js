@@ -8,6 +8,8 @@ import OtpVerify from '../src/screen/OtpVerify';
 import Privacy from '../src/screen/Privacy';
 import Terms from '../src/screen/Terms';
 import MyProfile from '../src/screen/MyProfile';
+import Cart from '../src/screen/Cart';
+import ProductItems from '../src/component/ProductItems';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -25,7 +27,7 @@ const StackNavigator = () => {
             focused ? (<FontAwesome name="home" size={26} color="#2A4C54"/>) : (<Ionicons name="home-outline" size={26} color="#646464"/>)
           )
         }} />
-        <Tab.Screen name="Cart" component={HomeScreen} options={{
+        <Tab.Screen name="Cart" component={Cart} options={{
           tabBarLabel: "Cart", headerShown: false, tabBarIcon: ({ focused }) => (
             focused ? (<Ionicons name="cart" size={26} color="#2A4C54"/>) : (<Ionicons name="cart-outline" size={26} color="#646464"/>)
           )
@@ -35,7 +37,7 @@ const StackNavigator = () => {
             focused ? (<AntDesign name="pluscircle" size={26} />) : (<AntDesign name="pluscircleo" size={26} />)
           )
         }} /> */}
-        <Tab.Screen name="MyProfile" component={HomeScreen} options={{
+        <Tab.Screen name="MyProfile" component={MyProfile} options={{
           tabBarLabel: "MyProfile", headerShown: false, tabBarIcon: ({ focused }) => (
             focused ? (<Ionicons name="person" size={26} color="#2A4C54" />) : (<Ionicons name="person-outline" size={26} color="#646464"/>)
           )
@@ -53,6 +55,8 @@ const StackNavigator = () => {
         <Stack.Screen name='Privacy' component={Privacy} options={{ headerShown: false }} />
         <Stack.Screen name='Terms' component={Terms} options={{ headerShown: false }} />
         <Stack.Screen name='MyProfile' component={MyProfile} options={{ headerShown: false }} />
+        <Stack.Screen name='Cart' component={Cart} options={{ headerShown: false }} />
+        <Stack.Screen name='ProductItems' component={ProductItems} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

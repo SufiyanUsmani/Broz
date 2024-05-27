@@ -1,7 +1,7 @@
 import { Image, StyleSheet, TextInput, View, TouchableOpacity, Text, SafeAreaView, Appearance, Alert, KeyboardAvoidingView } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = ({ navigation }) => {
   const [theme, setTheme] = useState("");
@@ -15,6 +15,20 @@ const Login = ({ navigation }) => {
     });
     return () => { listener.remove(); };
   }, []);
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const token = await AsyncStorage.getItem("authToken")
+        if (token) {
+          navigation.navigate("HomeScreen");
+        }
+      } catch (err) {
+        console.log("error message", err)
+      }
+    }
+    checkLoginStatus();
+  },[])
 
   const handleRegister = () => {
     if (!phone) {
@@ -41,7 +55,7 @@ const Login = ({ navigation }) => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: theme === "light" ? "#d9d9d9" : "#000" }}>
-      <TouchableOpacity style={[styles.Skip, styles.JACenter]}>
+      <TouchableOpacity style={[styles.Skip, styles.JACenter]} onPress={() => navigation.navigate("HomeScreen")}>
         <Text>Skip</Text>
       </TouchableOpacity>
       <View style={{ alignItems: "center" }}>
