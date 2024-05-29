@@ -42,6 +42,9 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
     console.log(user, "user");
     axios.post("http://localhost:800/register", user)
       .then((response) => {
+        console.log(response.data, "Registration response");
+        // const token = response.data.token;
+        // AsyncStorage.setItem("authtoken", token);
         Alert.alert("Registration Successful", "You have registered successfully");
         setPhone("");
         navigation.navigate('OtpVerify');
