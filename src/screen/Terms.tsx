@@ -1,13 +1,13 @@
-import { StyleSheet, Text, SafeAreaView, ScrollView, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 
-const Terms = ({ navigation }) => {
+const Terms: React.FC<{ navigation: any }> = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <View style={{height:50,borderBottomColor:"#646464",borderBottomWidth:0.5}}>
-                <Text style={{fontSize:20,fontWeight:"600",margin:10}}>Term's & Conditions</Text>
+            <View style={{ height: 50, borderBottomColor: "#646464", borderBottomWidth: 0.5 }}>
+                <Text style={{ fontSize: 20, fontWeight: "600", margin: 10 }}>Term's & Conditions</Text>
             </View>
-            <ScrollView style={{ paddingHorizontal: 10,  }}>
+            <ScrollView style={{ paddingHorizontal: 10 }}>
                 <Text style={styles.F14}>{"     "}These Terms and Conditions ("Terms") govern your use of the mobile application "Broz" (the "App") operated by CrackDown Pvt Ltd ("us", "we", or "our").</Text>
                 <Text style={styles.F14}>{"     "}By accessing or using the App, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the App.</Text>
 
@@ -39,11 +39,12 @@ const Terms = ({ navigation }) => {
                 <Text style={styles.F14}>{"     "}If you have any questions about these Terms, please contact us at [contact email].</Text>
             </ScrollView>
         </SafeAreaView>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     F14: { fontSize: 14 },
     F18B: { fontSize: 18, fontWeight: "600", marginVertical: "3%" },
-})
+});
+
 export default Terms;

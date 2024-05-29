@@ -22,14 +22,14 @@ const StackNavigator = () => {
   function BottomTabs() {
     return (
       <Tab.Navigator>
-        <Tab.Screen name="HomeScreen" component={HomeScreen} options={{
+        <Tab.Screen name="Home" component={HomeScreen} options={{
           tabBarLabel: "Home", headerShown: false, tabBarIcon: ({ focused }) => (
-            focused ? (<FontAwesome name="home" size={26} color="#2A4C54"/>) : (<Ionicons name="home-outline" size={26} color="#646464"/>)
+            focused ? (<FontAwesome name="home" size={26} color="#2A4C54" />) : (<Ionicons name="home-outline" size={26} color="#646464" />)
           )
         }} />
         <Tab.Screen name="Cart" component={Cart} options={{
           tabBarLabel: "Cart", headerShown: false, tabBarIcon: ({ focused }) => (
-            focused ? (<Ionicons name="cart" size={26} color="#2A4C54"/>) : (<Ionicons name="cart-outline" size={26} color="#646464"/>)
+            focused ? (<Ionicons name="cart" size={26} color="#2A4C54" />) : (<Ionicons name="cart-outline" size={26} color="#646464" />)
           )
         }} />
         {/* <Tab.Screen name="Category" component={HomeScreen} options={{
@@ -39,7 +39,7 @@ const StackNavigator = () => {
         }} /> */}
         <Tab.Screen name="MyProfile" component={MyProfile} options={{
           tabBarLabel: "MyProfile", headerShown: false, tabBarIcon: ({ focused }) => (
-            focused ? (<Ionicons name="person" size={26} color="#2A4C54" />) : (<Ionicons name="person-outline" size={26} color="#646464"/>)
+            focused ? (<Ionicons name="person" size={26} color="#2A4C54" />) : (<Ionicons name="person-outline" size={26} color="#646464" />)
           )
         }} />
       </Tab.Navigator>
@@ -56,7 +56,12 @@ const StackNavigator = () => {
         <Stack.Screen name='Terms' component={Terms} options={{ headerShown: false }} />
         <Stack.Screen name='MyProfile' component={MyProfile} options={{ headerShown: false }} />
         <Stack.Screen name='Cart' component={Cart} options={{ headerShown: false }} />
-        <Stack.Screen name='ProductItems' component={ProductItems} options={{ headerShown: false }} />
+        {/* <Stack.Screen name='ProductItems' component={ProductItems} options={{ headerShown: false }} /> */}
+        {/* <Stack.Screen
+          name='ProductItems'
+          component={() => <ProductItems item={} />}
+          options={{ headerShown: false }}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   )
