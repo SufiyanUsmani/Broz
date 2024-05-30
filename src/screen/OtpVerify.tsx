@@ -44,7 +44,7 @@ const OtpVerify: React.FC<OtpVerifyProps> = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme === "light" ? "#d9d9d9" : "#000" }}>
+    <SafeAreaView style={{backgroundColor: theme === "light" ? "#d9d9d9" : "#222831" , flex: 1 }}>
       <Text style={[styles.F24, { color: theme === "light" ? "#2A4C54" : "#d3d3d3" }]}>Enter the 4-digit OTP</Text>
       <OTPInputView
         style={{ width: '80%', height: 100, marginHorizontal: "10%" }}

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, Pressable, Image, Appearance } from 'react-native';
 
 interface Product {
     id: number;
@@ -12,6 +12,7 @@ interface Product {
 }
 
 const ProductItems: React.FC<{ item: Product }> = ({ item }) => {
+    const [theme, setTheme] = useState<string>("");
     const [addedToCart, setAddedToCart] = useState<boolean>(false);
 
     const addItemToCart = (item: Product) => {
@@ -23,13 +24,23 @@ const ProductItems: React.FC<{ item: Product }> = ({ item }) => {
         // }, 60000);
     };
 
+    useEffect(() => {
+        const listener = Appearance.addChangeListener(({ colorScheme }) => {
+            if (colorScheme === "dark") {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+        });
+        return () => { listener.remove(); };
+    }, []);
     return (
         <View>
             <Pressable style={{ marginHorizontal: 5, marginVertical: 5 }}>
-                <Image style={{ width: 185, height: 200, resizeMode: "contain", borderWidth: 0.5, borderColor: "#d3d3d3", borderRadius: 12 }} source={{ uri: item.image }} />
+                <Image style={{ width: 185, height: 200, resizeMode: "contain", borderWidth: 0.5, borderColor: "#d3d3d3", borderRadius: 12,backgroundColor:"#fff" }} source={{ uri: item.image }} />
                 <Text numberOfLines={1} style={{ width: 185, marginTop: 10 }}>{item.title}</Text>
                 <View style={{ marginTop: 5, flexDirection: "row", alignItems: "center", justifyContent: "space-between", paddingHorizontal: 5 }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold" }}>₹{item.price}</Text>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", color: theme === "light" ? "#000" : "#d3d3d3" }}>₹{item.price}</Text>
                     <Text style={{ color: "#2A4C54", fontWeight: "bold" }}>{item.rating.rate} ratings</Text>
                 </View>
 

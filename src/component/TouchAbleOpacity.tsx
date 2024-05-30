@@ -1,11 +1,17 @@
 import { StyleSheet, Text, View, TouchableOpacity as RNTouchableOpacity } from 'react-native';
 import React from 'react';
 
-const CustomTouchableOpacity = () => {
+interface IProps {
+  componentId: string;
+  ontouch:string;
+  text:string;
+}
+
+const CustomTouchableOpacity = (props: IProps) => {
   return (
     <View>
-      <RNTouchableOpacity style={styles.Touchable}>
-        <Text></Text>
+      <RNTouchableOpacity style={styles.Touchable} onPress={props.ontouch}>
+        <Text>{props.text}</Text>
       </RNTouchableOpacity>
     </View>
   );

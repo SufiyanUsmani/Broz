@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from '../src/screen/SplashScreen';
+// import SplashScreen from '../src/screen/SplashScreen';
 import HomeScreen from '../src/screen/HomeScreen';
 import Login from '../src/screen/Login';
 import OtpVerify from '../src/screen/OtpVerify';
@@ -47,8 +47,8 @@ const StackNavigator = () => {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreen">
-        <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName="Login">
+        {/* <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} /> */}
         <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="HomeScreen" component={BottomTabs} options={{ headerShown: false }} />
         <Stack.Screen name="OtpVerify" component={OtpVerify} options={{ headerShown: false }} />
