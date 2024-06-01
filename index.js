@@ -1,15 +1,19 @@
-
-import { AppRegistry } from 'react-native';
+// App.tsx
+import { AppRegistry, View } from 'react-native';
 import React from 'react';
-import { View } from 'react-native';
 import StackNavigator from './navigation/StackNavigator';
+import { Provider } from 'react-redux';
+import store from './store';
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <View>
-      <StackNavigator/>
-    </View>
-  )
+    <Provider store={store}>
+      <View style={{ flex: 1 }}>
+        <StackNavigator />
+      </View>
+    </Provider>
+  );
 }
+
 export default App;
-AppRegistry.registerComponent('Broz', () => StackNavigator);
+AppRegistry.registerComponent('Broz', () => App);

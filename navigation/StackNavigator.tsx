@@ -9,6 +9,7 @@ import Privacy from '../src/screen/Privacy';
 import Terms from '../src/screen/Terms';
 import MyProfile from '../src/screen/MyProfile';
 import Cart from '../src/screen/Cart';
+import ProductInfo from '../src/screen/ProductInfo';
 import ProductItems from '../src/component/ProductItems';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
@@ -56,6 +57,7 @@ const StackNavigator = () => {
         <Stack.Screen name='Terms' component={Terms} options={{ headerShown: false }} />
         <Stack.Screen name='MyProfile' component={MyProfile} options={{ headerShown: false }} />
         <Stack.Screen name='Cart' component={Cart} options={{ headerShown: false }} />
+       <Stack.Screen name='ProductInfo' component={ProductInfo} options={{ headerShown: false }}/>
         {/* <Stack.Screen name='ProductItems' component={ProductItems} options={{ headerShown: false }} /> */}
         {/* <Stack.Screen
           name='ProductItems'
