@@ -1,13 +1,24 @@
-import { StyleSheet, Text, SafeAreaView, ScrollView,View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, SafeAreaView, ScrollView, View, Appearance } from 'react-native';
+import React, { useEffect, useState } from 'react';
 
-const Privacy = ({ navigation }) => {
+const Privacy: React.FC = () => {
+    const [theme, setTheme] = useState<string>("");
+    useEffect(() => {
+        const listener = Appearance.addChangeListener(({ colorScheme }) => {
+            if (colorScheme === "dark") {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+        });
+        return () => { listener.remove(); };
+    }, []);
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: theme === "light" ? "#d9d9d9" : "#222831" }}>
             <View style={{ height: 50, borderBottomColor: "#646464", borderBottomWidth: 0.5 }}>
                 <Text style={{ fontSize: 20, fontWeight: "600", margin: 10 }}>Privacy Policy</Text>
             </View>
-            <ScrollView style={{ paddingHorizontal: 10,}}>
+            <ScrollView style={{ paddingTop: 20, paddingHorizontal: 15 }}>
                 <Text style={styles.F14}>{"   "}CrackDown Pvt Ltd ("us", "we", or "our") operates the mobile application "Broz" (the "App"). This page informs you of our policies regarding the collection, use, and disclosure of Personal Information we receive from users of the App.</Text>
                 <Text style={styles.F14}>{"   "}We use your Personal Information only for providing and improving the App. By using the App, you agree to the collection and use of information in accordance with this policy.</Text>
 
@@ -32,13 +43,15 @@ const Privacy = ({ navigation }) => {
 
                 <Text style={styles.F18B}>Contact Us :</Text>
                 <Text style={styles.F14}>{"   "}If you have any questions about this Privacy Policy, please contact us at [contact email].</Text>
+                <View style={{marginBottom:40}}/>
             </ScrollView>
         </SafeAreaView>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     F14: { fontSize: 14 },
     F18B: { fontSize: 18, fontWeight: "600", marginVertical: "3%" },
-})
+});
+
 export default Privacy;
