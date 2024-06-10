@@ -15,6 +15,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import ContactUs from '../src/screen/ContactUs';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -58,6 +59,7 @@ const StackNavigator = () => {
         <Stack.Screen name='MyProfile' component={MyProfile} options={{ headerShown: false }} />
         <Stack.Screen name='Cart' component={Cart} options={{ headerShown: false }} />
        <Stack.Screen name='ProductInfo' component={ProductInfo} options={{ headerShown: false }}/>
+       <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }}/>
         {/* <Stack.Screen name='ProductItems' component={ProductItems} options={{ headerShown: false }} /> */}
         {/* <Stack.Screen
           name='ProductItems'
