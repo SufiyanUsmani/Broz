@@ -5,7 +5,6 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
-  // Add other fields as needed
 }
 
 interface CartState {cart: CartItem[];}
@@ -14,7 +13,9 @@ const initialState: CartState = {cart: [],};
 
 const CartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState:{
+    cart:[],
+  },
   reducers: {
     addToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'>>) => {
       const itemPresent = state.cart.find(

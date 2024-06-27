@@ -98,3 +98,4 @@ export default ProductInfo;
 const styles = StyleSheet.create({
   JACenter:{justifyContent:"center",alignItems:"center"}
 });
+
