@@ -16,6 +16,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import ContactUs from '../src/screen/ContactUs';
+import Address from '../src/screen/Address';
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -60,6 +61,7 @@ const StackNavigator = () => {
         <Stack.Screen name='Cart' component={Cart} options={{ headerShown: false }} />
        <Stack.Screen name='ProductInfo' component={ProductInfo} options={{ headerShown: false }}/>
        <Stack.Screen name='ContactUs' component={ContactUs} options={{ headerShown: false }}/>
+       <Stack.Screen name='Address' component={Address} options={{ headerShown: false }}/>
         {/* <Stack.Screen name='ProductItems' component={ProductItems} options={{ headerShown: false }} /> */}
         {/* <Stack.Screen
           name='ProductItems'

@@ -32,11 +32,14 @@ const MyProfile: React.FC<MyProfileProps> = ({ navigation }) => {
       <TouchableOpacity style={[styles.button, styles.JACenter, { backgroundColor: theme === "light" ? "#2A4C54" : "#d3d3d3" }]}>
         <Text style={[styles.F16B, { color: theme === "light" ? "#d3d3d3" : "#2A4C54" }]}>Your Payments Detail</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.JACenter, { backgroundColor: theme === "light" ? "#2A4C54" : "#d3d3d3" }]}>
+      <TouchableOpacity style={[styles.button, styles.JACenter, { backgroundColor: theme === "light" ? "#2A4C54" : "#d3d3d3" }]} onPress={() => navigation.navigate('ContactUs')}>
         <Text style={[styles.F16B, { color: theme === "light" ? "#d3d3d3" : "#2A4C54" }]}>Contact Us</Text>
       </TouchableOpacity>
       <TouchableOpacity style={[styles.button, styles.JACenter, { backgroundColor: theme === "light" ? "#2A4C54" : "#d3d3d3" }]}>
         <Text style={[styles.F16B, { color: theme === "light" ? "#d3d3d3" : "#2A4C54" }]}>Setting</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, styles.JACenter, { backgroundColor: theme === "light" ? "#2A4C54" : "#d3d3d3" }]} onPress={() => navigation.navigate('Address')}>
+        <Text style={[styles.F16B, { color: theme === "light" ? "#d3d3d3" : "#2A4C54" }]}>Address</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

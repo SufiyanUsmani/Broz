@@ -19,6 +19,7 @@
     "axios": "^1.7.2",
     "deprecated-react-native-prop-types": "^5.0.0",
     "express": "^4.19.2",
+    "formik": "^2.4.6",
     "react": "18.2.0",
     "react-native": "0.73.7",
     "react-native-dropdown-picker": "^5.4.6",
@@ -27,7 +28,8 @@
     "react-native-screens": "^3.31.1",
     "react-native-select-dropdown": "^4.0.1",
     "react-native-vector-icons": "^10.1.0",
-    "react-redux": "^9.1.2"
+    "react-redux": "^9.1.2",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

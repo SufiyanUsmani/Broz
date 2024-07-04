@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 
 const ContactUs = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>ContactUs</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 
