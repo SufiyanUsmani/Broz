@@ -41,6 +41,9 @@ const MyProfile: React.FC<MyProfileProps> = ({ navigation }) => {
       <TouchableOpacity style={[styles.button, styles.JACenter, { backgroundColor: theme === "light" ? "#2A4C54" : "#d3d3d3" }]} onPress={() => navigation.navigate('Address')}>
         <Text style={[styles.F16B, { color: theme === "light" ? "#d3d3d3" : "#2A4C54" }]}>Address</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, styles.JACenter, { backgroundColor: theme === "light" ? "#2A4C54" : "#d3d3d3" }]} onPress={() => navigation.navigate('AboutUs')}>
+        <Text style={[styles.F16B, { color: theme === "light" ? "#d3d3d3" : "#2A4C54" }]}>About Us</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
