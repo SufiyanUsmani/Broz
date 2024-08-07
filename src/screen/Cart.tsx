@@ -1,4 +1,4 @@
-import { Appearance, SafeAreaView, StyleSheet, Text, View, Image, ScrollView } from 'react-native';
+import { Appearance, SafeAreaView, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 const Cart: React.FC = () => {
@@ -22,7 +22,9 @@ const Cart: React.FC = () => {
       <ScrollView>
         <View>
           <Image style={{ height: "auto", width: "96%", aspectRatio: 1 / 1.35, margin: "2%", borderRadius: 15 }} source={require("../../res/head1.jpeg")} />
-          <Text>Cart</Text>
+          <TouchableOpacity style={[styles.Touchable,styles.JACenter]}>
+            <Text style={styles.WhiteF16B}>Payment Proceed</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -31,4 +33,8 @@ const Cart: React.FC = () => {
 
 export default Cart;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  JACenter: { justifyContent: "center", alignItems: "center" },
+  WhiteF16B: { color: "#d3d3d3", fontSize: 16, fontWeight: "700" },
+  Touchable: { height: 45, width: "90%", marginHorizontal: "5%", marginVertical: 10, padding: 10, borderWidth: 0.5, borderColor: "#646464", borderRadius: 10, backgroundColor: "#2A4C54" },
+});
