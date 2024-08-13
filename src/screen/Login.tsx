@@ -45,9 +45,15 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
         console.log(response.data, "Registration response");
         // const token = response.data.token;
         // AsyncStorage.setItem("authtoken", token);
-        Alert.alert("Registration Successful", "You have registered successfully");
+        
         setPhone("");
-        navigation.navigate('OtpVerify');
+        if (phone.length == 10) {
+          Alert.alert("Registration Successful", "You have registered successfully");
+          navigation.navigate('OtpVerify');
+        } else {
+          Alert.alert("Registration Error", "Enter 10 digit number");
+        }
+        
       })
       .catch((error) => {
         Alert.alert("Registration Error", "An error occurred during registration");

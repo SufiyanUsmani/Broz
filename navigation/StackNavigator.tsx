@@ -51,7 +51,7 @@ const StackNavigator = () => {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="HomeScreen">
         {/* <Stack.Screen name="SplashScreen" component={SplashScreen} options={{ headerShown: false }} /> */}
         <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="HomeScreen" component={BottomTabs} options={{ headerShown: false }} />

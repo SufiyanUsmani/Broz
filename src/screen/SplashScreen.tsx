@@ -7,7 +7,7 @@ interface SplashScreenProps {
 
 const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
     useEffect(() => {
-        const timer = setTimeout(() => { navigation.navigate('Login'); }, 5000);
+        const timer = setTimeout(() => { navigation.navigate('HomeScreen'); }, 5000);
         return () => clearTimeout(timer);
     }, [navigation]);
 

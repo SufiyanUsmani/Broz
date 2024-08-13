@@ -5,8 +5,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import DropDownPicker from "react-native-dropdown-picker";
 import axios from "axios";
 import ProductItems from '../component/ProductItems';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { addToCart } from '../../redux/CartReducer';
 
 type Product = {
   id: number;
@@ -49,6 +50,15 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   const [category, setCategory] = useState<string>("jewelery");
   const [open, setOpen] = useState<boolean>(false);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [addedToCart, setAddedToCart] = useState<boolean>(false);
+  const dispatch =useDispatch();
+  const addItemToCart=(item) =>{
+    setAddedToCart(true);
+    dispatch(addToCart(item));
+    setTimeout(()=>{
+      setAddedToCart(false);
+    },60000)
+  }
   const [items, setItems] = useState<Item[]>([
     { label: "Men's clothing", value: "men's clothing" },
     { label: "jewelery", value: "jewelery" },
@@ -214,18 +224,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         </ScrollView>
         {/* <SliderBox images={images} autoPlay circleLoop dotColor={"#13274F"} inactiveDotColor="#90A4AE" ImageComponentStyle={{ width: "100%" }} /> */}
         <Text style={{ padding: 10, fontSize: 20, fontWeight: "bold", color: theme === "light" ? "#000" : "#d3d3d3" }}>Trending Product</Text>
-        <Image style={styles.H450} source={require('../../res/head1.jpeg')} />
-        <TouchableOpacity style={[styles.Touchable, styles.JACenter]}>
-          <Text style={styles.BuyNow}>Buy Now</Text>
-        </TouchableOpacity>
-        <Image style={styles.H450} source={require('../../res/Head2.jpeg')} />
-        <TouchableOpacity style={[styles.Touchable, styles.JACenter]}>
-          <Text style={styles.BuyNow}>Buy Now</Text>
-        </TouchableOpacity>
-        <Image style={styles.H450} source={require('../../res/Head3.jpeg')} resizeMode='cover' />
-        <TouchableOpacity style={[styles.Touchable, styles.JACenter]}>
-          <Text style={styles.BuyNow}>Buy Now</Text>
-        </TouchableOpacity>
+       
 
         <Text style={styles.Grey} />
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
