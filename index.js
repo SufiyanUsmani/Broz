@@ -1,11 +1,10 @@
-// App.tsx
-import { AppRegistry, View } from 'react-native';
-import React from 'react';
-import StackNavigator from './navigation/StackNavigator';
-import { Provider } from 'react-redux';
-import store from './store';
+const { AppRegistry, View } = require('react-native');
+const React = require('react');
+const StackNavigator = require('./navigation/StackNavigator').default;
+const { Provider } = require('react-redux');
+const store = require('./store').default;
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Provider store={store}>
       <View style={{ flex: 1 }}>
@@ -15,5 +14,5 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
 AppRegistry.registerComponent('Broz', () => App);
+module.exports = App;
